@@ -18,7 +18,13 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: [ 'babel' ],
+        loaders: ['babel'],
+        exclude: /node_modules/,
+        include: __dirname
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"],
         exclude: /node_modules/,
         include: __dirname
       }
