@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import { loadLocation } from '../actions'
 import LocationItem from '../components/LocationItem'
 
@@ -11,23 +12,28 @@ function loadData(props) {
 class App extends Component {
   constructor(props) {
     super(props)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentWillMount() {
     loadData(this.props)
   }
 
+  handleChange(nextValue) {
+    browserHistory.push(`/${nextValue}`)
+  }
 
   render() {
-    const { locations } = this.props
+    const { locations, children } = this.props
 
     return (
       <div>
         {
           Object.keys(locations).map( key => {
-            return <LocationItem key={key} location={locations[key]}/>
+            return <LocationItem key={key} location={locations[key]} onChange={this.handleChange}/>
           })
         }
+        {children}
       </div>
     )
   }
