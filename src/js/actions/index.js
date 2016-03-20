@@ -11,7 +11,7 @@ function fetchLocation(name) {
     [CALL_API]: {
       types: [ LOCATION_REQUEST, LOCATION_SUCCESS, LOCATION_FAILURE ],
       endpoint: `locations?name=${name}`,
-      schema: Schemas.LOCATION
+      schema: Schemas.LOCATION_ARRAY
     }
   }
 }

@@ -1,30 +1,53 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
+import { loadLocation } from '../actions'
+import LocationItem from '../components/LocationItem'
+
+function loadData(props) {
+  props.loadLocation("", ['name', 'description'])
+}
+
 
 class App extends Component {
   constructor(props) {
     super(props)
   }
 
+  componentWillMount() {
+    loadData(this.props)
+  }
+
+
   render() {
-    const { children } = this.props
+    const { locations } = this.props
 
     return (
       <div>
-        This is app container!
+        {
+          Object.keys(locations).map( key => {
+            return <LocationItem key={key} location={locations[key]}/>
+          })
+        }
       </div>
     )
   }
 }
 
 App.propTypes = {
-  // Injected by React Router
-  children: PropTypes.node
+  locations: PropTypes.object,
+  loadLocation: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
-  return {}
+  const {
+    entities: { locations }
+    } = state
+
+  return {
+    locations : locations
+  }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, {
+  loadLocation
+})(App)

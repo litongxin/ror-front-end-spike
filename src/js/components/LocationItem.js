@@ -3,12 +3,10 @@ import React, {PropTypes} from 'react';
 export default class LocationItem extends React.Component {
   render() {
     const { location } = this.props
-    const name = location.name
-    const description = location.description
     return (
       <li>
-        <h3 className="location-name">{name}</h3>
-        <p className="location-desc">{description}</p>
+        <h3 className="location-name">{location.name}</h3>
+        <p className="location-desc">{location.description}</p>
       </li>
     );
   }
