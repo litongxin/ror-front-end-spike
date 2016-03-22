@@ -5,7 +5,7 @@ import { loadLocation } from '../actions'
 import LocationItem from '../components/LocationItem'
 
 function loadData(props) {
-  props.loadLocation("", ['name', 'description'])
+  props.loadLocation(['name', 'description'])
 }
 
 
@@ -23,20 +23,27 @@ class App extends Component {
     browserHistory.push(`/${nextValue}`)
   }
 
-  render() {
-    const { locations, children } = this.props
+  renderLocationList() {
+    const {children, locations} = this.props
+    if (children === null) {
+      return (
+        Object.keys(locations).map(key => {
+          return <LocationItem key={key} location={locations[key]} onChange={this.handleChange}/>
+        }))
+    }
+  }
 
+
+  render() {
+    const {children} = this.props
     return (
       <div>
-        {
-          Object.keys(locations).map( key => {
-            return <LocationItem key={key} location={locations[key]} onChange={this.handleChange}/>
-          })
-        }
+        {this.renderLocationList()}
         {children}
       </div>
     )
   }
+
 }
 
 App.propTypes = {

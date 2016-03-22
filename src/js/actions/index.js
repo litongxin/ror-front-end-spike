@@ -6,11 +6,11 @@ export const LOCATION_FAILURE = 'LOCATION_FAILURE'
 
 // Fetches location from API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
-function fetchLocation(name) {
+function fetchLocation() {
   return {
     [CALL_API]: {
       types: [ LOCATION_REQUEST, LOCATION_SUCCESS, LOCATION_FAILURE ],
-      endpoint: `locations?name=${name}`,
+      endpoint: `locations`,
       schema: Schemas.LOCATION_ARRAY
     }
   }
@@ -18,9 +18,9 @@ function fetchLocation(name) {
 
 // Fetches location from API unless it is cached.
 // Relies on Redux Thunk middleware.
-export function loadLocation(name, requiredFields = []) {
+export function loadLocation(requiredFields = []) {
   return (dispatch, getState) => {
-    const locations = getState().entities.locations[name]
+    const locations = getState().locations
     if (locations && requiredFields.every(key => locations.hasOwnProperty(key))) {
       return null
     }

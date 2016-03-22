@@ -40,7 +40,7 @@ const locationSchema = new Schema('locations', {
 // Schemas for Github API responses.
 export const Schemas = {
   LOCATION: locationSchema,
-  LOCATION_ARRAY: arrayOf(locationSchema),
+  LOCATION_ARRAY: arrayOf(locationSchema)
 }
 
 // Action key that carries API call info interpreted by this Redux middleware.
