@@ -37,7 +37,7 @@ class App extends Component {
   render() {
     const {children} = this.props
     return (
-      <div>
+      <div className="location-list">
         {this.renderLocationList()}
         {children}
       </div>

@@ -1,5 +1,40 @@
-html, body{
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  .location-list {
+    margin: 24px auto;
+    max-width: 800px;
+    list-style: none;
+    .location-item {
+      margin-bottom: 1.25rem;
+      padding: 1.25rem;
+      background: #01954B;
+      .location-name {
+        font-size:1.05rem;
+        height: 40px;
+        border-radius: 2px;
+        background-color: #00AA5C;
+        border: solid 1px white;
+        color: white;
+        cursor: pointer;
+        padding: 0 24px;
+        &:hover{
+          -webkit-transform: scale(1.05);
+          -moz-transform: scale(1.05);
+          -o-transform: scale(1.05);
+          -ms-transform: scale(1.05);
+          transform: scale(1.05);
+          background-color: #FFA566;
+        }
+      }
+      .location-desc {
+        color: white;
+      }
+    }
+  }
 }

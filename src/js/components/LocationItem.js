@@ -13,7 +13,7 @@ export default class LocationItem extends React.Component {
   render() {
     const { location } = this.props
     return (
-      <li>
+      <li className="location-item">
         <button onClick={this.handleNameClick} className="location-name">{location.name}</button>
         <p className="location-desc">{location.description}</p>
       </li>
