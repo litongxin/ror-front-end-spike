@@ -1,4 +1,4 @@
-import { CALL_API, Schemas } from '../middleware/api'
+import { CALL_API, Schemas } from '../../core/middleware/api'
 
 export const LOCATION_REQUEST = 'LOCATION_REQUEST'
 export const LOCATION_SUCCESS = 'LOCATION_SUCCESS'

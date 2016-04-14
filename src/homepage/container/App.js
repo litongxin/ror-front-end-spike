@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-import { loadLocation } from '../actions'
-import LocationItem from '../components/LocationItem'
+import { loadLocation } from '../action'
+import LocationItem from '../../core/view/LocationItem'
 
 function loadData(props) {
   props.loadLocation(['name', 'description'])

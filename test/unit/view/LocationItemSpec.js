@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import React from 'react'
-import LocationItem from '../../../src/js/components/LocationItem'
+import LocationItem from '../../../src/core/view/LocationItem'
 
 describe('<LocationItem />', () => {
   let locationItem
