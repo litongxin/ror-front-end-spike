@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router'
-import App from './containers/App'
-import LocationPage from './containers/LocationPage'
+import App from './homepage/container/App'
+import LocationPage from './location/container/LocationPage'
 
 export default (
   <Route path="/" component={App}>

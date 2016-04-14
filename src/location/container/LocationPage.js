@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { loadLocation } from '../actions'
-import LocationItem from '../components/LocationItem'
+import { loadLocation } from '../../homepage/action'
+import LocationItem from '../../core/view/LocationItem'
 
 class LocationPage extends Component {
   constructor(props) {
