@@ -23,6 +23,15 @@ class App extends Component {
     browserHistory.push(`/${nextValue}`)
   }
 
+  renderFetchingFlag(){
+   const {isFetching} = this.props
+   if(isFetching){
+     return <h1><i>Loading locations, pls wait...</i></h1>
+   } else{
+     return <h1><i>isFetching status is false now!</i></h1>
+   }
+  }
+
   renderLocationList() {
     const {children, locations} = this.props
     if (children === null) {
@@ -38,6 +47,7 @@ class App extends Component {
     const {children} = this.props
     return (
       <div className="location-list">
+        {this.renderFetchingFlag()}
         {this.renderLocationList()}
         {children}
       </div>
@@ -48,16 +58,18 @@ class App extends Component {
 
 App.propTypes = {
   locations: PropTypes.object,
+  isFetching: PropTypes.boolean,
   loadLocation: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
   const {
-    entities: { locations }
+    entities: { locations },
+    ui : { locationsIsFetching }
     } = state
-
   return {
-    locations : locations
+    locations: locations,
+    isFetching : locationsIsFetching
   }
 }
 
